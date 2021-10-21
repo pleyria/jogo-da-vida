@@ -106,6 +106,7 @@ int main(void){
 	int N, G, exibir;		// parametros da simulacao
 	int i, j, k;			// variaveis de controle
 	int **grid, **newgrid;	// estruturas do grid
+	double start, end, start_g, end_g; // contagem de tempo
 
 	// Leitura dos parametros da simulacao
 	printf("Dimensao do tabuleiro (NxN)?\n");
@@ -114,6 +115,8 @@ int main(void){
 	scanf("%d", &G);
 	printf("Mostrar matriz 50x50? 1 = sim, 0 = nao.\n");
 	scanf("%d", &exibir);
+
+	start = omp_get_wtime();
 
 	// Alocacao das matrizes NxN
 	grid = (int**) malloc(N * sizeof(int*));
@@ -140,6 +143,7 @@ int main(void){
 	// Alterna a posicao de grid e newgrid nas chamadas
 	// (G impar -> resposta final em newgrid)
 	// (G par -> resposta final em grid)
+	start_g = omp_get_wtime();
 	for(i=0; i<G; i++){
 		if(i % 2 == 0){
 			simulate(grid, newgrid, N);
@@ -164,7 +168,8 @@ int main(void){
 			}
 		}
 	}
-	printf("\nSimulacao FInalizada.\n");
+	end_g = omp_get_wtime();
+	printf("\nSimulacao Finalizada.\n\n");
 
 	// Liberacao das matrizes NxN
 	for(i=0; i<N; i++){
@@ -173,6 +178,11 @@ int main(void){
 	}
 	free(grid);
 	free(newgrid);
+
+	end = omp_get_wtime();
+
+	printf("Tempo total decorrido: %lf segundos.\n", end-start);
+	printf("Tempo para computacao das geracoes: %lf segundos.\n", end_g-start_g);
 
 	return 0;
 }

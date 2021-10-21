@@ -1,6 +1,6 @@
 /* Game of Life
  * Linguagem C
- * Serial */
+ * Concorrente (OpenMP) */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -67,6 +67,9 @@ int getNeighbors(int** grid, int i, int j, int N){
 void simulate(int** grid, int** newgrid, int N){
 	int i, j, neighbors;
 
+#pragma omp parallel private(i, j, neighbors)
+{
+#pragma omp for
 	for(i=0; i<N; i++){
 		for(j=0; j<N; j++){
 			neighbors = getNeighbors(grid, i, j, N);
@@ -89,6 +92,8 @@ void simulate(int** grid, int** newgrid, int N){
 	}
 }
 
+}
+
 /* Recebe um grid NxN.
  * retorna o numero de celulas vivas no tabuleiro. */
 int countAlive(int** grid, int N){
@@ -104,7 +109,7 @@ int countAlive(int** grid, int N){
 }
 
 int main(void){
-	int N, G, exibir;		// parametros da simulacao
+	int N, G, T;			// parametros da simulacao
 	int i, j, k;			// variaveis de controle
 	int **grid, **newgrid;	// estruturas do grid
 	double start, end, start_g, end_g; // contagem de tempo
@@ -114,8 +119,11 @@ int main(void){
 	scanf("%d", &N);
 	printf("Numero de geracoes (iteracoes)?\n");
 	scanf("%d", &G);
-	printf("Mostrar matriz 50x50? 1 = sim, 0 = nao.\n");
-	scanf("%d", &exibir);
+	printf("Numero de threads (1, 2, 4, 8)?\n");
+	scanf("%d", &T);
+
+	// Define o numero de threads
+	omp_set_num_threads(T);
 
 	start = omp_get_wtime();
 
@@ -132,13 +140,6 @@ int main(void){
 
 	printf("\nIniciando simulacao...\n\n");
 	printf("Condicao inicial: %d vivos.\n", countAlive(grid, N));
-	if(exibir){
-		for(j=0; j<50; j++){
-			for(k=0; k<50; k++)
-				printf("%d ", grid[j][k]);
-			printf("\n");
-		}
-	}
 	
 	// Realiza a simulacao para G geracoes
 	// Alterna a posicao de grid e newgrid nas chamadas
@@ -149,24 +150,10 @@ int main(void){
 		if(i % 2 == 0){
 			simulate(grid, newgrid, N);
 			printf("Geracao %d: %d vivos\n", i+1, countAlive(newgrid, N));
-			if(exibir){
-				for(j=0; j<50; j++){
-					for(k=0; k<50; k++)
-						printf("%d ", newgrid[j][k]);
-					printf("\n");
-				}
-			}
 		}
 		else{
 			simulate(newgrid, grid, N);
 			printf("Geracao %d: %d vivos\n", i+1, countAlive(grid, N));
-			if(exibir){
-				for(j=0; j<50; j++){
-					for(k=0; k<50; k++)
-						printf("%d ", grid[j][k]);
-					printf("\n");
-				}
-			}
 		}
 	}
 	end_g = omp_get_wtime();
