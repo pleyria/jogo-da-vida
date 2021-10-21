@@ -1,3 +1,7 @@
+/* HighLife
+ * Linguagem C
+ * Serial */
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -70,8 +74,8 @@ void simulate(int** grid, int** newgrid, int N){
 			if(grid[i][j] && (neighbors == 2 || neighbors == 3))
 				newgrid[i][j] = ALIVE;
 
-			// 2) Celula morta com 3 vizinhos torna-se viva
-			else if(!grid[i][j] && neighbors == 3)
+			// 2) Celula morta com 3 ou 6 vizinhos torna-se viva
+			else if(!grid[i][j] && (neighbors == 3 || neighbors == 6))
 				newgrid[i][j] = ALIVE;
 
 			// 3) Qualquer outro caso
