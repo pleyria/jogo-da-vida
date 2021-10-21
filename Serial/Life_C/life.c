@@ -104,9 +104,9 @@ int countAlive(int** grid, int N){
 }
 
 int main(void){
-	int N, G, exibir;		// parametros da simulacao
-	int i, j, k;			// variaveis de controle
-	int **grid, **newgrid;	// estruturas do grid
+	int N, G, exibir; // parametros da simulacao
+	int i, j, k; // variaveis de controle
+	int **grid, **newgrid; // estruturas do grid
 	double start, end, start_g, end_g; // contagem de tempo
 
 	// Leitura dos parametros da simulacao
