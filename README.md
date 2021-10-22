@@ -1,5 +1,7 @@
 # Jogo da vida - Atividade de Programação Concorrente e Distribuída
 
+## Estrutura dos Arquivos
+
 * Concorrente
 	* highLife_C: *HighLife* em linguagem C com *threads* (OpenMP).
 	* highLife_Java: *HighLife* em linguagem Java com *threads* (JavaThreads).
