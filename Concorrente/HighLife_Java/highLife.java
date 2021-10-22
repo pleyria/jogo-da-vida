@@ -1,10 +1,10 @@
-/* Game of Life
+/* HighLife
  * Linguagem Java
  * Concorrente */
 
 import java.util.Scanner;
 
-public class life{
+public class highLife{
 	/* Recebe um grid NxN.
 	 * Insere um glider a partir da posicao (0,0).
 	 * Insere um R-pentomino a partir da posicao (10, 30). */
@@ -30,19 +30,19 @@ public class life{
  	 * Simula uma geracao atualizando as celular de newgrid. */
 	static void simulate(int grid[][], int newgrid[][], int N, int T){
 		int i, j, neighbors, div;
-		lifeThread[] lifeTh; // Thread
+		highLifeThread[] lifeTh; // Thread
 
 		// numero de iteracoes para cada thread
 		div = N/T;
 
 		// Instancias das T threads
-		lifeTh = new lifeThread[T];
+		lifeTh = new highLifeThread[T];
 		for(i=0; i<T-1; i++){
-			lifeTh[i] = new lifeThread(grid, newgrid, i*div, (i+1)*div-1, N);
+			lifeTh[i] = new highLifeThread(grid, newgrid, i*div, (i+1)*div-1, N);
 		}
 		// A ultima thread pode receber o resto se o numero de linhas
 		// nao for multiplo do numero de threads escolhido
-		lifeTh[T-1] = new lifeThread(grid, newgrid, i*div, (i+1)*div-1 + (N % T), N);
+		lifeTh[T-1] = new highLifeThread(grid, newgrid, i*div, (i+1)*div-1 + (N % T), N);
 
 		// Execucao das threads
 		for(i=0; i<T; i++)
