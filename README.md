@@ -1,5 +1,8 @@
 # Jogo da vida - Atividade de Programação Concorrente e Distribuída
 
+## Descrição
+Implementação de versões concorrentes e seriais do jogo da vida em linguagem C utilizando OpenMP e em linguagem Java utilizando *threads* java. 
+
 ## Estrutura dos Arquivos
 
 * Concorrente
