@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <omp.h>
 
 #define ALIVE 1
 #define DEAD 0
