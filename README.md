@@ -13,14 +13,14 @@ Implementação de versões concorrentes e seriais do jogo da vida em linguagem 
 * Serial
 	* highLife_C: *HighLife* em linguagem C sem *threads*.
 	* highLife_Java: *HighLife* em linguagem Java sem *threads*.
-	* Life_C: *Game of Life* em linguagem C com *threads*.
-	* Life_Java: *Game of Life* em linguagem Java com *threads*.
+	* Life_C: *Game of Life* em linguagem C sem *threads*.
+	* Life_Java: *Game of Life* em linguagem Java sem *threads*.
 
 ## Resultados
 
-Resultados de desempenho dos algoritmos disponível [nesta tabela](https://docs.google.com/spreadsheets/d/1Qy7jPkMfUVpZgRr0P_HdWd3AHZ-u1UlbYcqM43EOKeI/edit?usp=sharing).
+Resultados de testes de desempenho dos algoritmos disponíveis [nesta tabela](https://docs.google.com/spreadsheets/d/1Qy7jPkMfUVpZgRr0P_HdWd3AHZ-u1UlbYcqM43EOKeI/edit?usp=sharing).
 
-Testes feitos no processador AMD Ryzen 5 2400G, com o Linux Mint 20.2.
+Testes feitos no processador AMD Ryzen 5 2400G, com o sistema operacional Linux Mint 20.2.
 
 Parâmetros usados:
 
