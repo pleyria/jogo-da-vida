@@ -26,3 +26,4 @@ Parâmetros usados:
 
 * Dimensão do tabuleiro: 2048 x 2048
 * Número de gerações: 2000
+* Número de threads: 1, 2, 4 e 8.
