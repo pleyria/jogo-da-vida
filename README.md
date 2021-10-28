@@ -20,4 +20,9 @@ Implementação de versões concorrentes e seriais do jogo da vida em linguagem 
 
 Resultados de desempenho dos algoritmos disponível [nesta tabela](https://docs.google.com/spreadsheets/d/1Qy7jPkMfUVpZgRr0P_HdWd3AHZ-u1UlbYcqM43EOKeI/edit?usp=sharing).
 
-Testes feitos no processador AMD Ryzen 5 2400G.
+Testes feitos no processador AMD Ryzen 5 2400G, com o Linux Mint 20.2.
+
+Parâmetros usados:
+
+* Dimensão do tabuleiro: 2048 x 2048
+* Número de gerações: 2000
