@@ -20,7 +20,7 @@ Implementação de versões concorrentes e seriais do jogo da vida em linguagem 
 
 Resultados de testes de desempenho dos algoritmos disponíveis [nesta tabela](https://docs.google.com/spreadsheets/d/1Qy7jPkMfUVpZgRr0P_HdWd3AHZ-u1UlbYcqM43EOKeI/edit?usp=sharing).
 
-Testes feitos no processador AMD Ryzen 5 2400G, com o sistema operacional Linux Mint 20.2.
+Testes feitos no processador AMD Ryzen 5 2400G (4 núcleos e 8 threads), com 16 GB de memória RAM e usando o sistema operacional Linux Mint 20.2 Cinnamon.
 
 Parâmetros usados:
 
