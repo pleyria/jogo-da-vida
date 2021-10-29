@@ -19,7 +19,7 @@ Implementação de versões concorrentes e seriais do jogo da vida em linguagem 
 ## Especificações da Máquina Usada
 Testes feitos no processador AMD Ryzen 5 2400G (4 núcleos reais e 8 threads com *hyperthreading*), com 16 GB de memória RAM e usando o sistema operacional Linux Mint 20.2 Cinnamon.
 
-Código em linguagem C compilado com o compilador GCC versão 9.3.0.
+Código em linguagem C compilado com o compilador GCC versão 9.3.0 e a biblioteca OpenMP versão 4.5.
 
 Código em linguagem Java compilado com o compilador javac versão 17.
 
